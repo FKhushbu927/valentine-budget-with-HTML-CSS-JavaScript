@@ -42,5 +42,21 @@ function totalSum(params){
     const rosePrice = document.getElementById('rose').innerText;
     const dairyPrice = document.getElementById('diary').innerText;
     const totalPrice = parseInt(chocolatePrice) + parseInt(rosePrice)  + parseInt(dairyPrice) ;
-    document.getElementById('total').innerText =  totalPrice;
+    // document.getElementById('total').innerText =  totalPrice;
+    setInnerText("total", totalPrice);
 }
+
+document.getElementById('promo-apply-btn').addEventListener('click', function(){
+       const promoCode = getInputFieldValue('promo-code');
+       const total = document.getElementById('total').innerText;
+       if(promoCode == 101){
+        const total = document.getElementById("total").innerText;
+        const sum = total - parseInt(total) * 0.1;
+        setInnerText("all-total", sum);
+       }
+       else{
+        alert("wrong promo code try again with valid code !");
+       }
+
+
+})
