@@ -6,6 +6,7 @@ document.getElementById('kitkat-buy-btn').addEventListener('click', function(){
     const quantity =  getInputFieldValue("kitkat-quantity");
     const kitkatCost = quantity  * 200;
     setInnerText("chocolate", kitkatCost);
+    totalSum();
 })
 
 document.getElementById('rose-buy-btn').addEventListener('click', function(){
@@ -15,6 +16,7 @@ document.getElementById('rose-buy-btn').addEventListener('click', function(){
       const quantity =  getInputFieldValue("rose-quantity");
       const roseCost = quantity * 100;
       setInnerText("rose", roseCost);
+      totalSum();
 })
 
 document.getElementById('diary-buy-btn').addEventListener('click', function(){
@@ -24,6 +26,7 @@ document.getElementById('diary-buy-btn').addEventListener('click', function(){
         const quantity =  getInputFieldValue("diary-quantity");
         const dairyCost = quantity * 100;
         setInnerText("diary", dairyCost);
+        totalSum();
 })
 
 function setInnerText(id, value){
@@ -31,5 +34,13 @@ function setInnerText(id, value){
 }
 function getInputFieldValue(id){
      const value = document.getElementById(id).value;
-     return value;
+     return parseInt(value);
+}
+
+function totalSum(params){
+    const chocolatePrice = document.getElementById('chocolate').innerText;
+    const rosePrice = document.getElementById('rose').innerText;
+    const dairyPrice = document.getElementById('diary').innerText;
+    const totalPrice = parseInt(chocolatePrice) + parseInt(rosePrice)  + parseInt(dairyPrice) ;
+    document.getElementById('total').innerText =  totalPrice;
 }
